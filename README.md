@@ -5,4 +5,4 @@
 MSI installer can be downloaded from the [Technet Gallery](https://gallery.technet.microsoft.com/ConfigMgr-Remote-Compliance-2a9e55f3).
 
 ## Screenshot
-![Screenshot](https://github.com/SMSAgentSoftware/ConfigMgr-Remote-Compliance/master/Remote%20Compliance.png)
+![Screenshot](https://raw.githubusercontent.com/SMSAgentSoftware/ConfigMgr-Remote-Compliance/master/Remote%20Compliance.png)
