@@ -6,15 +6,7 @@
       <Changes>
         <Change>Initial Version</Change>
       </Changes>
-      <ReleaseDate>2017-Mar-13</ReleaseDate>
-    </Version>
-    <Version>
-      <Value>1.1</Value>
-      <Changes>
-        <Change>Fixed issue with formatting the correct date for schtasks /SD switch</Change>
-        <Change>Added feature 'Copy to clipboard'</Change>
-      </Changes>
-      <ReleaseDate>2017-Mar-14</ReleaseDate>
+      <ReleaseDate>2017-March-15</ReleaseDate>
     </Version>
   </Versions>
 </Remote_Compliance>
