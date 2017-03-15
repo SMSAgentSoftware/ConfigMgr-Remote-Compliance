@@ -38,7 +38,7 @@
                 <RichTextBox Padding="10" IsReadOnly="True">
                 <FlowDocument>
                     <Paragraph >
-                        <Run>1.1</Run>
+                        <Run>1.2</Run>
                     </Paragraph>
                 </FlowDocument>
             </RichTextBox>
