@@ -353,7 +353,7 @@ $UI.About.Add_Click({
 # Event: Window Loaded
 $UI.Window.Add_Loaded({
     # Check if new version is available
-    [int]$ThisVersion = $UI.CurrentVersion
+    [double]$ThisVersion = $UI.CurrentVersion
     $Code = {
         Param($UI,$ThisVersion)
         Check-CurrentVersion -UI $UI -ThisVersion $ThisVersion
