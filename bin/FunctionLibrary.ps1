@@ -438,7 +438,7 @@ Function Check-CurrentVersion {
     $UI.VersionHistory.Add($Table)
 
     # Get Current version number
-    [int]$CurrentVersion = $XMLDocument.Remote_Compliance.Versions.Version.Value | Sort -Descending | Select -First 1
+    [double]$CurrentVersion = $XMLDocument.Remote_Compliance.Versions.Version.Value | Sort -Descending | Select -First 1
 
     # Enable the "Update" menut item to notify user
     If ($CurrentVersion -gt $ThisVersion)
