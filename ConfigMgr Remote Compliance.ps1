@@ -17,6 +17,10 @@ If ($OS -eq "64-bit")
 $Source = "$ProgramFiles\SMSAgent\ConfigMgr Remote Compliance"
 
 
+# Load in function library
+. "$Source\bin\FunctionLibrary.ps1"
+
+
 # File hash checks
 $XAMLFiles = @(
     "About.xaml"
@@ -35,9 +39,9 @@ $PSFiles = @(
 $Hashes = @{
     "About.ps1" = '30D81D06FD7B561AF92A260CD15A63A3CA7E8981AB75A5B3F7C54DCEC4040CFB'
     "ClassLibrary.ps1" = 'E526558B23F95F341F07D5E8F578F46CC1BC485FD1E68C281801AD3640617060'
-    "EventLibrary.ps1" = '687BC25EC1AE7D197E83A325DC08CC3B607EC2368121C603F4F88555B51BCB1B'
-    "FunctionLibrary.ps1" = '2B4748A341620EADEAE65F607F464646CA285848453F17F929071B4E59B3AE5E'
-    "About.xaml" = 'C04952151A689D06CB1928ACDD4B824475629F846CC54FAD12C140E811015742'
+    "EventLibrary.ps1" = 'B574B376B8B69827EEC125AAA7818A13D8871BF1021E356161F792A3A20090E7'
+    "FunctionLibrary.ps1" = 'BBE900558FEFC76A3938B026845C4D4934BC91F78667AFEEBD3ABDAA7C21A4EF'
+    "About.xaml" = 'A016F4DE2215B9360F8161983BA1E044FAA9E7F93258031103DACF18914CAE81'
     "App.xaml" = '3694F7887B31AD6E47A801F47B93E8AEAC522CCEDBB89FB09C690F41E93919B5'
     "Help.xaml" = 'D61F971EA8D454F9961966CEDB1FB108D625A486664AA08A6D5BB09FB4AA8469'
     "HelpFlowDocument.xaml" = '928C28274AC68C311F703082FCBFA6DB20CBD5279224EC2DD415DEC33A87862D'
@@ -60,10 +64,6 @@ $PSFiles | foreach {
         Break
     }
 }
-
-
-# Load in function library
-. "$Source\bin\FunctionLibrary.ps1"
 
 
 # Do PS version check
@@ -101,7 +101,7 @@ $UI.User = New-Object System.Collections.ObjectModel.ObservableCollection[Object
 $UI.VersionHistory = New-Object System.Collections.ObjectModel.ObservableCollection[Object]
 $UI.Window.DataContext = $UI.DataContext
 $UI.Reports = @()
-$UI.CurrentVersion = [int]1.0
+$UI.CurrentVersion = [int]1.1
 
 # Set icon
 $UI.Window.Icon = "$Source\bin\audit.ico"

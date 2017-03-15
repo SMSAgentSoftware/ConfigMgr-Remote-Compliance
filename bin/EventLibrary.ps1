@@ -111,9 +111,6 @@ $UI.ComputerName.Add_KeyDown({
 # Event: When a row is selected in the datagrid
 $UI.dataGrid.Add_SelectionChanged({
     
-    # Get the baseline based on the selected row
-    $Baseline = $UI.Baselines[0] | where {$_.Name -eq $This.SelectedItem.Name}
-
     # Enable the report button
     $UI.BT_Report.IsEnabled = $true
 
