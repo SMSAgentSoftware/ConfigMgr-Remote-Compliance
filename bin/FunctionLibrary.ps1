@@ -246,9 +246,37 @@ function Generate-Report {
     # Set report filename
     $Report = "$env:USERPROFILE\AppData\Local\Temp\Compliance_Report_$(Get-Random).htm"
 
-    # Load default stylesheet and update document paths
-    $SourceXSL = Get-Content "C:\Windows\CCM\DCMReportTransform.xsl" -Raw
-    $SourceXSL = $SourceXSL.Replace("SMS_CCM","Windows\CCM")
+    # Set path to transform file, either local client or site server client
+    $LocalClientPath = "$env:windir\CCM"
+    if ($env:SMS_LOG_PATH)
+    {
+        $SiteServerPath = ($env:SMS_LOG_PATH).Replace("\Microsoft Configuration Manager\logs","")
+        $SiteServerPath = $SiteServerPath + "\SMS_CCM"
+    }
+    If (Test-Path $LocalClientPath)
+    {
+        $TransformFile = "$LocalClientPath\DCMReportTransform.xsl"
+    }
+    ElseIf (Test-Path $SiteServerPath)
+    {
+        $TransformFile = "$SiteServerPath\DCMReportTransform.xsl"
+    }
+    Else
+    {
+        Write-UILog -Severity Error -Message "Could not locate DCMReportTransform.xsl in the expected locations." -UI $UI
+        Return
+    }
+
+    # Load transform file and update the dcm resource and style paths
+    $SourceXSL = Get-Content $TransformFile -Raw
+    If ($SiteServerPath)
+    {
+        $SourceXSL = $SourceXSL.Replace("SMS_CCM","Program Files\SMS_CCM")      
+    }
+    Else
+    {
+        $SourceXSL = $SourceXSL.Replace("SMS_CCM","Windows\CCM")
+    }
     
     # Create stylesheet as xmlreader
     $StyleSheet = [System.Xml.XmlReader]::Create([System.IO.StringReader]::new($SourceXSL))
