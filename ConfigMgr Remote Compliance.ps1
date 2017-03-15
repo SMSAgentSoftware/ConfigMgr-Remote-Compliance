@@ -17,6 +17,10 @@ If ($OS -eq "64-bit")
 $Source = "$ProgramFiles\SMSAgent\ConfigMgr Remote Compliance"
 
 
+# Load in function library
+. "$Source\bin\FunctionLibrary.ps1"
+
+
 # File hash checks
 $XAMLFiles = @(
     "About.xaml"
@@ -60,10 +64,6 @@ $PSFiles | foreach {
         Break
     }
 }
-
-
-# Load in function library
-. "$Source\bin\FunctionLibrary.ps1"
 
 
 # Do PS version check
