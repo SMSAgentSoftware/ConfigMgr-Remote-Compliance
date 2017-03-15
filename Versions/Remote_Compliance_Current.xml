@@ -16,5 +16,19 @@
       </Changes>
       <ReleaseDate>2017-March-15</ReleaseDate>
     </Version>
+    <Version>
+      <Value>1.2</Value>
+      <Changes>
+        <Change>Fixed issue where the "Update Available" button did not display when new version available</Change>
+      </Changes>
+      <ReleaseDate>2017-March-15</ReleaseDate>
+    </Version>
+    <Version>
+      <Value>1.3</Value>
+      <Changes>
+        <Change>Test only</Change>
+      </Changes>
+      <ReleaseDate>2017-March-15</ReleaseDate>
+    </Version>
   </Versions>
 </Remote_Compliance>
