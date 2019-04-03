@@ -4,18 +4,10 @@
 
 
 # Set the source directory
-$OS = (Get-CimInstance -ClassName Win32_OperatingSystem -Property OSArchitecture).OSArchitecture
-If ($OS -eq "32-bit")
-{
-    $ProgramFiles = $env:ProgramFiles
-}
-If ($OS -eq "64-bit")
-{
-    $ProgramFiles = ${env:ProgramFiles(x86)}
-}
-
-$Source = "$ProgramFiles\SMSAgent\ConfigMgr Remote Compliance"
-
+$scriptRoot = [System.AppDomain]::CurrentDomain.BaseDirectory.TrimEnd('\')
+if ($scriptRoot -eq $PSHOME.TrimEnd('\')){
+    $scriptRoot = $PSScriptRoot}
+$Source = $scriptRoot
 
 # Load in function library
 . "$Source\bin\FunctionLibrary.ps1"
